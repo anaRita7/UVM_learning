@@ -34,10 +34,10 @@ class packet;
     this.ptype  = ANY;
   endfunction
 
-  constraint target_not_0_c            {target != 0;}
-  constraint target_source_not_equal_c {(target & source) == 4'b0;}
-  constraint packet_type {ptype == SINGLE ->    target inside {1,2,4,8};  
-                          ptype == MULTICAST -> target inside {3,[5:7],[9:14]};  
+  constraint target_not_0_c {target != 0;}
+  constraint ptype_order_c {solve ptype before target;}
+  constraint packet_type_c {ptype == SINGLE -> { target inside {1,2,4,8}; (target & source) == 4'b0; }
+                          ptype == MULTICAST -> { target inside {3,[5:7],[9:14]}; (target & source) == 4'b0; } 
                           ptype == BROADCAST -> target == 15;} 
 
   function string gettype();
