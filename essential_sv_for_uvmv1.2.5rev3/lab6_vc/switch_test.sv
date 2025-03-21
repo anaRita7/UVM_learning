@@ -17,7 +17,7 @@ module top;
   logic reset = 1'b0;
 
   // Declare a handle on your top level VC component class
-  packet_vc pvc0;
+  packet_vc pvc0, pvc1, pvc2, pvc3;
 
   always
     #10 clk <= ~clk;
@@ -40,9 +40,25 @@ module top;
     reset = 1'b0;
 
     // insert your VC instantiation, configuration and run code here:
+    // pvc0 = new("pvc0", null);
+    // pvc0.configure(port0, 0);
+    // pvc0.run(3);
+    // #500;
+
     pvc0 = new("pvc0", null);
     pvc0.configure(port0, 0);
-    pvc0.run(3);
+    pvc1 = new("pvc1", null);
+    pvc1.configure(port1, 1);
+    pvc2 = new("pvc2", null);
+    pvc2.configure(port2, 2);
+    pvc3 = new("pvc3", null);
+    pvc3.configure(port3, 3);
+    fork
+      pvc0.run(1);
+      pvc1.run(1);
+      pvc2.run(1);
+      pvc3.run(1);
+    join
     #500;
 
     $finish;
