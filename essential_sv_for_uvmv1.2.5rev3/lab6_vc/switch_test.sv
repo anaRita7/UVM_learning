@@ -17,6 +17,7 @@ module top;
   logic reset = 1'b0;
 
   // Declare a handle on your top level VC component class
+  packet_vc pvc0;
 
   always
     #10 clk <= ~clk;
@@ -39,6 +40,10 @@ module top;
     reset = 1'b0;
 
     // insert your VC instantiation, configuration and run code here:
+    pvc0 = new("pvc0", null);
+    pvc0.configure(port0, 0);
+    pvc0.run(3);
+    #500;
 
     $finish;
     end
