@@ -59,7 +59,7 @@ interface port_if(input bit clk,reset);
  endtask
 
  // function to derive packet type from target address
- function packet_type_t derive_type(logic[3:0] target);
+ function ptype_t derive_type(logic[3:0] target);
    case (target) inside
      1,2,4,8: derive_type = SINGLE;
      15     : derive_type = BROADCAST;

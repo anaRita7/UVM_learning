@@ -20,7 +20,7 @@ module packet_test;
   port_if port0 (clk, reset);
 
   // Add your VC top level class handle
-
+  packet_vc pvc0;
 
   // Clock generator
   always
@@ -37,8 +37,9 @@ module packet_test;
     reset = 1'b0;
 
     // insert your VC instantiation, configuration and run code here:
-
-
+    pvc0 = new("pvc0", null);
+    pvc0.configure(port0, 0);
+    pvc0.run(3);
 
     $finish;
   end
