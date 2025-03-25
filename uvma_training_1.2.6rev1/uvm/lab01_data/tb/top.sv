@@ -31,7 +31,8 @@ module top;
         end
 
         // experiment with the copy, clone and compare UVM method
-        $display("\n\n\n\nCOPY");
+        copy_packet = new("copy_packet");
+        $display("COPY");
         copy_packet.copy(packet);
         copy_packet.print();
 
