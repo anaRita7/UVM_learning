@@ -1,0 +1,15 @@
+xcelium.d
+xrun*
+*.tar
+waves*
+*.txt
+.project
+*.TXT
+*-bookmarks
+ida.db*
+*.ucm
+*.ucd
+*.swp
+*.dat
+*.log
+
