@@ -11,8 +11,8 @@ class base_test extends uvm_test;
   function void build_phase(uvm_phase phase);
     super.build_phase(phase);
     uvm_config_wrapper::set(this, "tb.yapp.tx_agent.sequencer.run_phase",
-                                   "default_sequence",
-                                   yapp_5_packets::get_type());
+                                  "default_sequence",
+                                  yapp_5_packets::get_type());
     tb = new("tb", this);
     `uvm_info("TEST","Build phase of test executed",UVM_HIGH)
   endfunction : build_phase
