@@ -1,5 +1,5 @@
 /*-----------------------------------------------------------------
-File name     : hw_top.sv
+File name     : hw_top_no_dut.sv
 Developers    : Kathleen Meade, Brian Dickinson
 Created       : 01/04/11
 Description   : lab06_vif hardware top module for acceleration
