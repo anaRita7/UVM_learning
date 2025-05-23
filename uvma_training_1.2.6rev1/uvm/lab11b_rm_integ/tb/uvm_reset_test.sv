@@ -1,6 +1,6 @@
 
 /*-----------------------------------------------------------------
-File name     : reset_test.sv
+File name     : uvm_reset_test.sv
 Developers    : Lisa Barbay, Brian Dickinson
 Created       : 7/11/12
 Description   : This file calls the built-in reset test
@@ -32,15 +32,14 @@ class  uvm_reset_test extends base_test;
   endfunction : build_phase
 
   virtual task run_phase (uvm_phase phase);
-     phase.raise_objection(this, "Raising Objection to run uvm built in reset test");
+     phase.raise_objection(this, {"Raising Objection ",get_type_name()});
      // Set the model property of the sequence to our Register Model instance
      // Update the RHS of this assignment to match your instance names. Syntax is:
      //  <testbench instance>.<register model instance>
      reset_seq.model = tb.yapp_rm;
      // Execute the sequence (sequencer is already set in the testbench)
      reset_seq.start(null);
-     phase.drop_objection(this," Dropping Objection to uvm built reset test finished");
-     
+     phase.drop_objection(this,{"Dropping Objection ",get_type_name()});
      
   endtask
 
